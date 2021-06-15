@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 const UseState = React.lazy(() => import("./views/UseState"));
 const UseEffect = React.lazy(() => import("./views/UseEffect"));
 const UseRef = React.lazy(() => import("./views/UseRef"));
+const UseContext = React.lazy(() => import("./views/UseContext"));
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           <li>
             <Link to="./useRef">useRef</Link>
           </li>
+          <li>
+            <Link to="./useContext">useContext</Link>
+          </li>
         </ul>
         <div>
           <Switch>
@@ -34,6 +38,7 @@ function App() {
               <Route path="/useState" component={UseState} />
               <Route path="/useEffect" component={UseEffect} />
               <Route path="/useRef" component={UseRef} />
+              <Route path="/useContext" component={UseContext} />
             </Suspense>
           </Switch>
         </div>
