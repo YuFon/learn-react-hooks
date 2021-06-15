@@ -6,6 +6,7 @@ const UseState = React.lazy(() => import("./views/UseState"));
 const UseEffect = React.lazy(() => import("./views/UseEffect"));
 const UseRef = React.lazy(() => import("./views/UseRef"));
 const UseContext = React.lazy(() => import("./views/UseContext"));
+const UseLayoutEffect = React.lazy(() => import("./views/UseLayoutEffect"));
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           <li>
             <Link to="./useContext">useContext</Link>
           </li>
+          <li>
+            <Link to="./useLayoutEffect">useLayoutEffect</Link>
+          </li>
         </ul>
         <div>
           <Switch>
@@ -39,6 +43,7 @@ function App() {
               <Route path="/useEffect" component={UseEffect} />
               <Route path="/useRef" component={UseRef} />
               <Route path="/useContext" component={UseContext} />
+              <Route path="/useLayoutEffect" component={UseLayoutEffect} />
             </Suspense>
           </Switch>
         </div>
