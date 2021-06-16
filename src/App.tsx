@@ -6,6 +6,7 @@ const UseState = React.lazy(() => import("./views/UseState"));
 const UseEffect = React.lazy(() => import("./views/UseEffect"));
 const UseRef = React.lazy(() => import("./views/UseRef"));
 const UseContext = React.lazy(() => import("./views/UseContext"));
+const UseCallback = React.lazy(() => import("./views/UseCallback"));
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </li>
           <li>
             <Link to="./useContext">useContext</Link>
+          </li>
+          <li>
+            <Link to="./useCallback">useCallback</Link>
           </li>
         </ul>
         <div>
