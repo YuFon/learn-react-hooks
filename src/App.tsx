@@ -6,7 +6,9 @@ const UseState = React.lazy(() => import("./views/UseState"));
 const UseEffect = React.lazy(() => import("./views/UseEffect"));
 const UseRef = React.lazy(() => import("./views/UseRef"));
 const UseContext = React.lazy(() => import("./views/UseContext"));
+const UseLayoutEffect = React.lazy(() => import("./views/UseLayoutEffect"));
 const UseCallback = React.lazy(() => import("./views/UseCallback"));
+const UseMemo = React.lazy(() => import("./views/UseMemo"));
 
 function App() {
   return (
@@ -33,7 +35,13 @@ function App() {
             <Link to="./useContext">useContext</Link>
           </li>
           <li>
-            <Link to="./useCallback">useCallback</Link>
+            <Link to="./useLayoutEffect">useLayoutEffect</Link>
+          </li>
+          <li>
+            <Link to="./useCallback">callBackRef & useCallback</Link>
+          </li>
+          <li>
+            <Link to="./useMemo">useMemo</Link>
           </li>
         </ul>
         <div>
@@ -43,6 +51,9 @@ function App() {
               <Route path="/useEffect" component={UseEffect} />
               <Route path="/useRef" component={UseRef} />
               <Route path="/useContext" component={UseContext} />
+              <Route path="/useLayoutEffect" component={UseLayoutEffect} />
+              <Route path="/useCallback" component={UseCallback} />
+              <Route path="/useMemo" component={UseMemo} />
             </Suspense>
           </Switch>
         </div>

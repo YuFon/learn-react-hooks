@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useRef } from "react";
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 
 // 基本用法
 const Input: React.FC<{
@@ -68,7 +68,37 @@ const Input2 = React.forwardRef(
   }
 );
 
-const UseEffect: React.FC = () => {
+// 用ref来缓存值
+const RefMemo: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
+  const ref = useRef<number | null>(null);
+
+  return (
+    <>
+      <div>current: {count}</div>
+      <div>prev: {ref.current}</div>
+
+      <button
+        onClick={() => {
+          ref.current = count;
+          setCount((x) => x + 1);
+        }}
+      >
+        +1
+      </button>
+      <button
+        onClick={() => {
+          ref.current = count;
+          setCount((x) => x - 1);
+        }}
+      >
+        -1
+      </button>
+    </>
+  );
+};
+
+const UseRef: React.FC = () => {
   const myRef1 = useRef<HTMLInputElement>(null);
   const myRef2 = useRef<HTMLInputElement>(null);
 
@@ -102,8 +132,9 @@ const UseEffect: React.FC = () => {
       >
         聚焦2
       </button>
+      <RefMemo />
     </>
   );
 };
 
-export default UseEffect;
+export default UseRef;
