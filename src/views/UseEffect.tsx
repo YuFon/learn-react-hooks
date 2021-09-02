@@ -7,8 +7,9 @@ const UseEffect: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setCount((x) => x + 1), 1000);
+    console.log(count)
     return () => {
-      console.log("effect的清除阶段在每次重新渲染时都会执行");
+      console.log("effect的清除阶段在每次进入effect时都会执行" + count);
       clearTimeout(timer);
     };
   }, [count]);
@@ -17,20 +18,20 @@ const UseEffect: React.FC = () => {
   useEffect(
     () => {
       const timer = setInterval(() => {
-        setCount2(count2 + 1); // 这个 effect 依赖于 `count2` state
+        setCount2(count2 + 1); // count2不变
       }, 1000);
       return () => clearInterval(timer);
     },
-    [
-      // 这里加入count2的依赖可以解决这个问题，但这样会每次重置定时器
-    ]
+    []
   );
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCount3((x) => x + 1); // 这个 effect 不依赖外部的 `count3` state
     }, 1000);
-    return () => clearInterval(timer);
+    return () => {
+      console.log("effect的清除阶段在每次进入effect时都会执行count3");
+      clearInterval(timer)};
   }, []);
   return (
     <>
