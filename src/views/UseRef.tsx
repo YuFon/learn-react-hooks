@@ -69,26 +69,54 @@ const Input2 = React.forwardRef(
 );
 
 // 用ref来缓存值
+// const RefMemo: React.FC = () => {
+//   const [count, setCount] = useState<number>(0);
+//   const ref = useRef<number | null>(null);
+
+//   return (
+//     <>
+//       <div>current: {count}</div>
+//       <div>ref: {ref.current}</div>
+
+//       <button
+//         onClick={() => {
+//           ref.current = count;
+//           setCount((x) => x + 1);
+//         }}
+//       >
+//         +1
+//       </button>
+//       <button
+//         onClick={() => {
+//           ref.current = count;
+//           setCount((x) => x - 1);
+//         }}
+//       >
+//         -1
+//       </button>
+//     </>
+//   );
+// };
 const RefMemo: React.FC = () => {
   const [count, setCount] = useState<number>(0);
-  const ref = useRef<number | null>(null);
+  const ref = useRef<number>(0);
 
   return (
     <>
       <div>current: {count}</div>
-      <div>prev: {ref.current}</div>
+      <div>ref: {ref.current}</div>
 
       <button
         onClick={() => {
-          ref.current = count;
-          setCount((x) => x + 1);
+          ref.current += 1;
+          // setCount((x) => x + 1);
         }}
       >
         +1
       </button>
       <button
         onClick={() => {
-          ref.current = count;
+          // ref.current = count;
           setCount((x) => x - 1);
         }}
       >
